@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>graphql_skeleton</RootNamespace>
+    <UserSecretsId>3ebeedac-98b4-417d-8ebb-75d8583e76b5</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HotChocolate" Version="13.4.0" />
+    <PackageReference Include="HotChocolate.AspNetCore" Version="13.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.7" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Mutations\" />
+    <Folder Include="Subscriptions\" />
+    <Folder Include="Nodes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application\Application.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
