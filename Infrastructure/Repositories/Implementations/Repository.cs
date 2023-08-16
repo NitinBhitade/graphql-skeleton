@@ -26,19 +26,22 @@ namespace Infrastructure.Repositories.Implementations
         {
             return await _dbContext.Set<TEntity>().ToListAsync();
         }
-        public async Task Add(TEntity entity)
+        public async Task Add(TEntity entity, CancellationToken cancellationToken)
         {
             await _dbContext.Set<TEntity>().AddAsync(entity);
+            await _dbContext.SaveChangesAsync();
         }
 
-        public void Delete(TEntity entity)
+        public async Task Delete(TEntity entity, CancellationToken cancellationToken)
         {
             _dbContext.Set<TEntity>().Remove(entity);
+            await _dbContext.SaveChangesAsync();
         }
 
-        public void Update(TEntity entity)
+        public async Task Update(TEntity entity, CancellationToken cancellationToken)
         {
             _dbContext.Set<TEntity>().Update(entity);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

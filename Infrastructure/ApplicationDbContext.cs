@@ -16,6 +16,11 @@ namespace Infrastructure
         {
         }
 
-        public DbSet<Role> Roles { get; set; } = default!;
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.UseIdentityColumns();
+        }
+
+        public DbSet<Role> Role { get; set; } = default!;
     }
 }

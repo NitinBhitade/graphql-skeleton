@@ -4,6 +4,7 @@ using Application;
 using Microsoft.Extensions.DependencyInjection;
 using graphql_skeleton.Queries;
 using HotChocolate.AspNetCore.Voyager;
+using graphql_skeleton.Mutations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,10 +27,10 @@ builder.Services
     .AddQueryType()
 
    // Next we add the types to our schema.
-   // .AddMutationType()
+    .AddMutationType()
    //.AddSubscriptionType()
     .AddTypeExtension<RolesQueries>()
-
+    .AddTypeExtension<RolesMutations>()
    // In this section we are adding extensions like relay helpers,
    // filtering and sorting.
     .AddFiltering()

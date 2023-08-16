@@ -11,8 +11,8 @@ namespace Infrastructure.Repositories.Interfaces
     {
         Task<TEntity> GetById(int id);
         Task<IEnumerable<TEntity>> GetAll();
-        Task Add(TEntity entity);
-        void Delete(TEntity entity);
-        void Update(TEntity entity);
+        Task Add(TEntity entity, CancellationToken cancellationToken);
+        Task Delete(TEntity entity, CancellationToken cancellationToken);
+        Task Update(TEntity entity, CancellationToken cancellationToken);
     }
 }

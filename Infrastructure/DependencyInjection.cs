@@ -30,7 +30,7 @@ namespace Infrastructure
 
            
            // services.AddScoped<IRoleRepository, RoleRepository>();
-            services.AddTransient<IRoleRepository>(_ =>
+            services.AddScoped<IRoleRepository>(_ =>
                  new RoleRepository(
                      _.GetRequiredService<IDbContextFactory<ApplicationDbContext>>().CreateDbContext()));
             return services;

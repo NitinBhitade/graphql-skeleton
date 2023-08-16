@@ -16,10 +16,10 @@ namespace Infrastructure.Repositories.Implementations
       
         public IQueryable<Role> GetRoles()
         {
-            return _dbContext.Roles
+            return _dbContext.Role
                 .AsQueryable()
                 ;
         }
-
+        
     }
 }
