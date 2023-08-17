@@ -17,7 +17,7 @@ using Infrastructure;
 
 namespace Tests.infrastructure
 {
-    public class RoleRepository
+    public class RoleRepositoryTest
     {
         #region TESTS
         public class When_getting_roles : SpecsFor<RoleRepositorySUT>
@@ -36,14 +36,14 @@ namespace Tests.infrastructure
             }
 
 
-            [Test, Category(nameof(RoleRepository))]
+            [Test, Category(nameof(RoleRepositoryTest))]
             public void Then_it_should_call_roles()
             {
                 GetMockFor<IRoleRepository>()
                     .Verify(x => x.GetRoles(), Times.Once);
             }
 
-            [Test, Category(nameof(RoleRepository))]
+            [Test, Category(nameof(RoleRepositoryTest))]
             public void Then_it_should_return_valid_data()
             {
                 _result.ShouldNotBeNull();
@@ -62,7 +62,13 @@ namespace Tests.infrastructure
                 var context = new Mock<ApplicationDbContext>();
                 var dbSetMock = new Mock<DbSet<Role>>();
                 context.Setup(x => x.Set<Role>()).Returns(dbSetMock.Object);
-                dbSetMock.Setup(x => x.Add(It.IsAny<Role>())).Returns(role);
+               // dbSetMock.Setup(x => x.Add(It.IsAny<Role>())).Returns(role);
+
+                //var peopleContextMock = new Mock<ApplicationDbContext>();
+                //peopleContextMock.Setup(pc => pc.Set<Role>()).Returns(dbSetMock.Object);
+                //var entityRepository = new RoleRepository<Role>(peopleContextMock.Object);
+
+                //var jokesRepository = new Mock<IRoleRepository<Role>>();
 
                 state.GetMockFor<IRoleRepository>()
                     .Setup(i => i.GetRoles())
